@@ -54,7 +54,7 @@ Page({
            wx.getUserProfile({
              desc:'正在获取',//不写不弹提示框
              success:function(res){
-              console.log(res.rawData)
+              //console.log(res.rawData)
               that.setData({
                 userInfo:res.userInfo,
                 rawData:res.rawData,
@@ -82,7 +82,7 @@ Page({
           //获取用户信息
           // wx.getUserProfile({
             // success: function(info_res) {
-              console.log("up获取成功了")
+             // console.log("up获取成功了")
               // 2. 小程序通过wx.request()发送code到开发者服务器
               wx.request({
                 url: 'http://localhost:9095/user/wx/login',
@@ -100,8 +100,8 @@ Page({
                 success: function(res) {
                   if (res.data.status == 200) {
                     // 7.小程序存储skey（自定义登录状态）到本地
-                    console.log(res)
-                    console.log("芜湖")
+                   // console.log(res)
+                 //   console.log("芜湖")
                     wx.setStorageSync('userInfo', that.data.userInfo);
                     //wx.setStorageSync('skey', res.data.data);
                     wx.setStorageSync('openId', res.data.data);

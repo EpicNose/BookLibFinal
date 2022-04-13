@@ -1,2 +1,9 @@
 <!--pages/haveborrow/haveborrow.wxml-->
+<import src="../templates/templates.wxml"/>
 <text>pages/haveborrow/haveborrow.wxml</text>
+
+    <view class="book-list">
+        <view wx:for="{{bookObj}}" wx:for-index="id" wx:for-item="book">
+            <template is="indexList" data="{{book}}"/>
+        </view>
+    </view>

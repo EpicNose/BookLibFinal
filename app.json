@@ -1,22 +1,12 @@
 {
   "pages": [
+    "pages/haveborrow/haveborrow",
     "pages/self/self",
     "pages/index/index",
     "pages/login/login",
-    "pages/toAuth/toAuth",
-    "pages/haveborrow/haveborrow",
-    
+    "pages/toAuth/toAuth", 
     "pages/launch/launch",
-    "pages/selfInfo/selfInfo",
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    "pages/selfInfo/selfInfo",   
     "pages/register/register",
     
     
@@ -86,7 +76,7 @@
         "selectedIconPath": "images/operate-selected.png"
       },
       {
-        "pagePath": "pages/self/self",
+        "pagePath": "pages/haveborrow/haveborrow",
         "text": "我的",
         "iconPath": "images/selfCenter.png",
         "selectedIconPath": "images/selfCenter-selected.png"

@@ -62,7 +62,7 @@ Page({
             url: url,
             method: "GET",
             success: function (res) {
-                //console.log(res)
+                // console.log(res)
                 that.setData({
                     bookObj: res.data,
                     // bookObj: res.data,
