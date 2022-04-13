@@ -4,7 +4,7 @@
     "pages/index/index",
     "pages/login/login",
     "pages/toAuth/toAuth",
-    
+    "pages/haveborrow/haveborrow",
     
     "pages/launch/launch",
     "pages/selfInfo/selfInfo",

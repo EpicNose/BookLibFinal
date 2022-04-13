@@ -41,8 +41,15 @@ Page({
     //获取图书列表
     getBookList:function(){
         var that = this 
-       // var url = 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=bookList&screen=' + that.data.activeNum;
-        var url='https://book.imgcraft.cn:9095/book/page?pageNum=1&pageSize=10&bookName=&author=&publishingHouse=&isbn=&translator='
+       
+       
+        // var url = 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=bookList&screen=' + that.data.activeNum;
+
+        //var url='https://book.imgcraft.cn:9095/book/page?pageNum=1&pageSize=10&bookName=&author=&publishingHouse=&isbn=&translator='
+        
+        var url='http://localhost:9095/book/getrandombooks'
+      
+      
         // var url = 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=bookList&screen=' + that.data.activeNum;
 
         // if (that.data.searchValue){
@@ -57,7 +64,7 @@ Page({
             success: function (res) {
                 //console.log(res)
                 that.setData({
-                     bookObj: res.data.records,
+                    bookObj: res.data,
                     // bookObj: res.data,
                     loading: false
                 })
