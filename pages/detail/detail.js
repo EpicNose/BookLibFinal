@@ -10,11 +10,13 @@ Page({
         loading: true,
         keepTimes: null,
         cateisShow: false,
-        canShareId: null,
+       // canShareId: null,
         openIds: null,
         params: null,
-        commentInfo:null,
         booknum:null,
+        commentInfo:null,
+        bookInfo:null,
+      //  booknum:null,
         borrowNeed: app.globalData.borrow
     },
 
@@ -22,12 +24,12 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(params) {
-        var canShareId = params.canShareId;
+       // var canShareId = params.canShareId;
         var book_type = params.book_type;
         var bookId = params.bookId;
         var that = this;
         that.setData({
-            canShareId: canShareId,
+            //canShareId: canShareId,
             params: params,
             book_type: book_type,
             bookId: bookId
@@ -40,9 +42,10 @@ Page({
                 'content-type': 'application/json',
             },
             success: function (res) {
-                console.log(res)
+                console.log("res为"+res)
                 that.setData({
                     bookInfo: res.data,
+                    booknum: res.data.num,
                    // commentInfo: res.data[0].comment,
                     loading: false
                 })
@@ -97,110 +100,162 @@ Page({
     },
 
     borrowBook: function (e) {     
-         //借书前的验证  这玩意
-        // if (app.globalData.certificationOk != 2) {
-        //     wx.showToast({
-        //         title: '您还没有进行信息认证！',
-        //     })
-        //     return;
-        // }
+        // 借书前的验证  这玩意
+        if (app.globalData.certificationOk != 2) {
+
+            wx.navigateTo({
+                url: '../login/login',
+                success: (result)=>{
+                  console.log("jump to login")
+                },
+                fail: ()=>{},
+                complete: ()=>{}
+              });
+            wx.showToast({
+                icon:'none',
+                title: '您还没有进行信息认证！登陆后再开始借书哦',
+            })
+            return;
+        }
         //借书
         var that = this;
-        var canShareId = that.data.canShareId;
-        var book_type = that.data.book_type;
-        var checkStatus = that.data.bookInfo.protect;//信息保护
-
-        //C2C借书
-        if (checkStatus == 1) {
-            //开启信息保护
-            that.togglePtype();
-        } else {
-            //判断不能借自己书、是否借出
-            wx.request({
-                url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=affirmBorrowBook&canShareId=' + canShareId + '&user_id=' + app.globalData.userId + "&protect=0" + "&price=" + that.data.bookInfo.price + "&bookType=" + book_type,
-                method: "GET",
-                header: {
-                    'content-type': 'application/json',
-                },
-                success: function (res) {
-                    if (res.data[0].result == "noEnough"){
-                        wx.showToast({
-                            title: '您的积分不够,请通过其他方式获取积分！',
-                            icon: 'false',
-                            duration: 2000
-                        })
-                        return ;
-                    }
-                    else if (res.data[0].result == "sharing") {
-                        wx.showToast({
-                            title: '图书已被借出！',
-                            icon: 'false',
-                            duration: 2000
-                        })
-                    } else if (res.data[0].result == "fail") {
-                        wx.showToast({
-                            title: '借书失败，请稍后重试！',
-                            icon: 'false',
-                            duration: 2000
-                        })
-                    } else if (res.data[0].result == "success") {
-                        if (book_type == 0) {
-                            wx.showModal({
-                                title: '通知',
-                                content: '扣除您' + that.data.bookInfo.price+'积分，您可以直接联系书主借书！',
-                                success: function (res) {
-                                    if (res.confirm) {
-                                        wx.makePhoneCall({
-                                            phoneNumber: that.data.bookInfo.phoneNumber //仅为示例，并非真实的电话号码
-                                        })
-                                    } else if (res.cancel) {
-                                        wx.showModal({
-                                            title: '通知',
-                                            content: '您可以前往借入界面联系书主',
-                                            showCancel: false,
-                                            success: function (res) {
-                                                if (res.confirm) {
-
-                                                } else if (res.cancel) {
-
-                                                }
-                                            }
-                                        })
-                                    }
-                                }
-                            })
-                        } else {
-                            //自营点借书成功提示
-                            wx.showModal({
-                                title: '通知',
-                                content: '借入成功，扣除' + that.data.bookInfo.price+'积分，你需要前往此自营点借书！',
-                                success: function (res) {
-                                    if (res.confirm) {
-
-                                    } else if (res.cancel) {
-
-                                    }
-                                }
-                            })
-                        }
-
-                    } else if (res.data[0].result == "mine") {
-                        wx.showToast({
-                            title: '您不能借自己的书！',
-                            icon: 'false',
-                            duration: 2000
-                        })
-                    }
-                },
-                fail: function () {
+        //var bookid = that.data.bookid;
+      //  var book_type = that.data.book_type;
+      //  var checkStatus = that.data.bookInfo.protect;//信息保护
+     //   console.log("num为:"+that.data.bookInfo.num)
+       // console.log("num为:"+that.data.bookInfo.booknum)
+        //console.log(that.data)
+      //  console.log(that.data.bookInfo.booknum)
+        if(that.data.booknum>0){
+        // wx.request({
+        //     url:'http://'+app.globalData,apiUrl+'/'+app.globalData.openId,
+        // }),
+        wx.request({
+            url: 'http://' + app.globalData.apiUrl + '/ordertable/borrow/' + app.globalData.openId + '/' +that.data.bookId,
+            method: "GET",
+            header: {
+                'content-type': 'application/json',
+            },
+            success: function (res) {
                     wx.showToast({
-                        title: '借书失败，请稍后重试！',
-                        icon: 'false',
+                        title: '借阅成功！稍后刷新信息',
+                        icon: 'none',
                         duration: 2000
                     })
-                }
+                    that.onLoad(that.data.params);
+            },
+            fail: function () {
+                wx.showToast({
+                    title: '借书失败，请稍后重试！',
+                    icon: 'none',
+                    duration: 2000
+                })
+            }
+        })
+        }else{   //书的数量不够啦
+            wx.showToast({
+                title: '这本书已经没库存啦！换本书借',
+                icon: 'none',
+                duration: 2000
             })
+            console.log("booknum为？"+that.data.booknum)
         }
+
+
+
+
+        //C2C借书
+        // if (checkStatus == 1) {
+        //     //开启信息保护
+        //     that.togglePtype();
+        // } else {
+        //     //判断不能借自己书、是否借出
+        //     wx.request({
+        //         url: 'http://' + app.globalData.apiUrl + '?m=home&c=Api&a=affirmBorrowBook&canShareId=' + canShareId + '&user_id=' + app.globalData.userId + "&protect=0" + "&price=" + that.data.bookInfo.price + "&bookType=" + book_type,
+        //         method: "GET",
+        //         header: {
+        //             'content-type': 'application/json',
+        //         },
+        //         success: function (res) {
+
+        //             if (res.data[0].result == "noEnough"){
+        //                 wx.showToast({
+        //                     title: '您的积分不够,请通过其他方式获取积分！',
+        //                     icon: 'false',
+        //                     duration: 2000
+        //                 })
+        //                 return ;
+        //             }
+        //             else if (res.data[0].result == "sharing") {
+        //                 wx.showToast({
+        //                     title: '图书已被借出！',
+        //                     icon: 'false',
+        //                     duration: 2000
+        //                 })
+        //             } else if (res.data[0].result == "fail") {
+        //                 wx.showToast({
+        //                     title: '借书失败，请稍后重试！',
+        //                     icon: 'false',
+        //                     duration: 2000
+        //                 })
+        //             } else if (res.data[0].result == "success") {
+        //                 if (book_type == 0) {
+        //                     wx.showModal({
+        //                         title: '通知',
+        //                         content: '扣除您' + that.data.bookInfo.price+'积分，您可以直接联系书主借书！',
+        //                         success: function (res) {
+        //                             if (res.confirm) {
+        //                                 wx.makePhoneCall({
+        //                                     phoneNumber: that.data.bookInfo.phoneNumber //仅为示例，并非真实的电话号码
+        //                                 })
+        //                             } else if (res.cancel) {
+        //                                 wx.showModal({
+        //                                     title: '通知',
+        //                                     content: '您可以前往借入界面联系书主',
+        //                                     showCancel: false,
+        //                                     success: function (res) {
+        //                                         if (res.confirm) {
+
+        //                                         } else if (res.cancel) {
+
+        //                                         }
+        //                                     }
+        //                                 })
+        //                             }
+        //                         }
+        //                     })
+        //                 } else {
+        //                     //自营点借书成功提示
+        //                     wx.showModal({
+        //                         title: '通知',
+        //                         content: '借入成功，扣除' + that.data.bookInfo.price+'积分，你需要前往此自营点借书！',
+        //                         success: function (res) {
+        //                             if (res.confirm) {
+
+        //                             } else if (res.cancel) {
+
+        //                             }
+        //                         }
+        //                     })
+        //                 }
+
+        //             } else if (res.data[0].result == "mine") {
+        //                 wx.showToast({
+        //                     title: '您不能借自己的书！',
+        //                     icon: 'false',
+        //                     duration: 2000
+        //                 })
+        //             }
+        //         },
+        //         fail: function () {
+        //             wx.showToast({
+        //                 title: '借书失败，请稍后重试！',
+        //                 icon: 'false',
+        //                 duration: 2000
+        //             })
+        //         }
+        //     })
+        // }
     },
 
 
@@ -268,7 +323,7 @@ Page({
         var that = this
         //添加至public_booklist 我看过的
         wx.request({
-            url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=addSeenBook&user_id=' + app.globalData.userId + "&book_id=" + that.data.bookInfo.book_id + "&type=1",
+            url: 'http://' + app.globalData.apiUrl + '?m=home&c=Api&a=addSeenBook&user_id=' + app.globalData.userId + "&book_id=" + that.data.bookInfo.book_id + "&type=1",
             method: "GET",
             header: {
                 'content-type': 'application/json',

@@ -1,10 +1,14 @@
 {
   "pages": [
+    "pages/self/self",
     "pages/index/index",
+    "pages/login/login",
     "pages/toAuth/toAuth",
+    
+    
     "pages/launch/launch",
     "pages/selfInfo/selfInfo",
-    "pages/login/login",
+    
     
     
     
@@ -19,7 +23,7 @@
     "pages/home/index",
     "pages/logs/logs",
     
-    "pages/self/self",
+    
     "pages/detail/detail",
     
     

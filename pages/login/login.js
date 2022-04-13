@@ -100,12 +100,14 @@ Page({
                 success: function(res) {
                   if (res.data.status == 200) {
                     // 7.小程序存储skey（自定义登录状态）到本地
-                   // console.log(res)
+                    console.log(res)
+                    console.log("芜湖")
                     wx.setStorageSync('userInfo', that.data.userInfo);
                     //wx.setStorageSync('skey', res.data.data);
+                    wx.setStorageSync('openId', res.data.data);
                     app.globalData.openId=res.data.data;
-                   // console.log("全局openid为"+app.globalData.openId)
-
+                  //  console.log("全局openid为"+app.globalData.openId)
+                    app.globalData.certificationOk=2;
 
                     wx.switchTab({
                       url: '../index/index',
