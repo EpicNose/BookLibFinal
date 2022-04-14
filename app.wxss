@@ -1,6 +1,6 @@
 /**app.wxss**/
-@import "colorui/main.wxss";
-@import "colorui/icon.wxss";
+@import "icon.wxss";
+@import "main.wxss";
 page {
     height: 100%;
     width: 100%;

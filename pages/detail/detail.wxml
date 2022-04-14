@@ -25,6 +25,7 @@
             <text class="info">出版日期：{{bookInfo.yearOfPublication}}</text>
             <!-- <text class="info">所需积分：{{bookInfo.price}}分</text> -->
             <text class="info">图书可借阅数量：{{bookInfo.num}}本</text>
+            <text class="info">分类：{{bookInfo.label}}本</text>
         </view>
         <view class="summary">
             <text class="label">摘要：</text>

@@ -9,6 +9,7 @@ Page({
     OrderBooks:[],
     UserInfo:{},
     openid:null,
+    modalName:null,
   },
 
   /**
@@ -37,6 +38,21 @@ Page({
     }
 
     
+  },
+  hideModal(e) {
+    this.setData({
+      modalName: null
+    })
+  },
+  showModal(e) {
+    this.setData({
+      modalName: e.currentTarget.dataset.target
+    })
+  },
+  detail(e) {
+    this.setData({
+      modalName: e.currentTarget.dataset.target
+    })
   },
 
   /**
