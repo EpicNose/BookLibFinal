@@ -1,16 +1,25 @@
 <!-- 首页 -->
 
 <template name="indexListforhaveborrow">
-    <view class="book-tmp" bindtap="detail" data-target="DialogModal2" data-bookId="{{book.bookbook.id}}" data-type="{{book.bookbook.label}}" >
+    <view class="book-tmp" bindtap="detail" data-target="DialogModal2" data-bookId="{{book.bookbook.id}}" data-type="{{book.bookbook.label}}" data-orderid="{{book.orderid}}" >
         <image src="{{book.bookbook.imgUrl}}" class="book-image"></image>
         <view class="book-info">
-            <view class="book-name">{{book.bookbook.bookName}}—{{book.bookbook.author}}</view>
+            <view class="book-namename">{{book.bookbook.bookName}}—{{book.bookbook.author}}</view>
                 <view  >
                     <text wx:if="{{book.orderstate==0}}" >
                         借阅状态:审核中
                     </text>
                     <text wx:if="{{book.orderstate==1}}" >
                         借阅状态:成功
+                    </text>
+                    <text wx:if="{{book.orderiscomplete==0}}" >
+                        归还状态:待归还
+                    </text>
+                    <text wx:if="{{book.orderiscomplete==1}}" >
+                        归还状态:审核中
+                    </text>
+                    <text wx:if="{{book.orderiscomplete==2}}" >
+                        归还状态:归还成功
                     </text>
                       
                 </view>

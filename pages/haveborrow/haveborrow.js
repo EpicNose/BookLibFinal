@@ -10,6 +10,7 @@ Page({
     UserInfo:{},
     openid:null,
     modalName:null,
+    orderid:null,
   },
 
   /**
@@ -43,6 +44,32 @@ Page({
     this.setData({
       modalName: null
     })
+    var that=this;
+    wx.request({
+      url: 'http://localhost:9095/user/returnbook/'+that.data.orderid,
+      method: "GET",
+      success: function (res) {
+          // console.log(res)
+          wx.showToast({
+            title: res.data,
+            icon: 'false',
+            duration: 2000
+        })
+        that.onShow();
+          // that.setData({
+          //     bookObj: res.data,
+          //     // bookObj: res.data,
+          //     loading: false
+          // })
+      },
+      fail: function () {
+          wx.showToast({
+              title: '获取数据失败，请稍后重试！',
+              icon: 'false',
+              duration: 2000
+          })
+      }
+    })
   },
   showModal(e) {
     this.setData({
@@ -50,9 +77,15 @@ Page({
     })
   },
   detail(e) {
+    //console.log(e)
+   // console.log(book.orderid)
+    //book.orderid
     this.setData({
+      orderid:e.currentTarget.dataset.orderid,
       modalName: e.currentTarget.dataset.target
     })
+    //var that=this;
+    
   },
 
   /**

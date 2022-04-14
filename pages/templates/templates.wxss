@@ -29,6 +29,8 @@
     /* white-space: nowrap; */
     white-space: normal;
 }
+.book-namename {
+}
 
 .book-nameedit {
     height: 50%;
