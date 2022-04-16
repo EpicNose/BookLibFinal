@@ -2,6 +2,9 @@
 
 <!--index.wxml-->
 <!-- <loading hidden="{{ !loading }}">加载中...</loading>  -->
+    <view class="SearchSearch">
+        <SearchInput>123</SearchInput>
+    </view>
 <view class="container" style="background:#f4f4f4">
     <!--<view  bindtap="bindViewTap" class="userinfo">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
@@ -11,10 +14,8 @@
     <text class="user-motto">{{motto}}</text>
   </view>-->
     <!--头部搜索-->
-    <view class="SearchSearch">
-        <SearchInput>123</SearchInput>
-    </view>
-    <view class="search-area">
+
+    <!-- <view class="search-area">
         <view style="width:98%;margin:0 auto">
             <view class="search-scanner">
                 <image src="../../images/scanner.png" bindtap="screenISBN"></image>
@@ -23,7 +24,7 @@
             </view>
         </view>
 
-    </view>
+    </view> -->
     <!--头部搜索结束-->
     <!--筛选开始-->
     <!-- <view class="screen-box">

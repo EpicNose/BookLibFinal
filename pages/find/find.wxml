@@ -1,6 +1,5 @@
 <!--pages/find/find.wxml-->
 <import src="../templates/templates.wxml"/>
-<text>pages/find/find.wxml</text>
 	<view class="cu-form-group margin-top">
 		<view class="title">书名</view>
 		<input placeholder="请输入书籍名称" bindinput="inputbookname"></input>
