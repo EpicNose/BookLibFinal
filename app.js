@@ -6,6 +6,32 @@ App({
         logs.unshift(Date.now())
         wx.setStorageSync('logs', logs)
 
+        wx.checkSession({
+            success: (res)=>{
+                console.log(res)
+                wx.showToast({
+                    title: '登录未过期',
+
+                });
+
+            },
+            fail: (res)=>{
+
+                wx.navigateTo({
+                    url: '../login/login',
+                    success: (res)=>{
+                        
+                    },
+                    fail: ()=>{},
+                    complete: ()=>{}
+                });
+                wx.showToast({
+                    icon:'none',
+                    title: '登录过期请重新授权'
+                });
+            },
+            complete: ()=>{}
+        });
         // //登录
         // var that = this;
         // wx.request({

@@ -11,6 +11,7 @@ Page({
     openid:null,
     modalName:null,
     orderid:null,
+    bookorderstate:null,
   },
 
   /**
@@ -44,46 +45,72 @@ Page({
     this.setData({
       modalName: null
     })
+    
+    
+  },
+  returnModal(e) {
+    this.setData({
+      modalName: null
+    })
     var that=this;
-    wx.request({
-      url: 'http://localhost:9095/user/returnbook/'+that.data.orderid,
-      method: "GET",
-      success: function (res) {
-          // console.log(res)
-          wx.showToast({
-            title: res.data,
-            icon: 'false',
-            duration: 2000
-        })
-        that.onShow();
-          // that.setData({
-          //     bookObj: res.data,
-          //     // bookObj: res.data,
-          //     loading: false
-          // })
-      },
-      fail: function () {
-          wx.showToast({
-              title: '获取数据失败，请稍后重试！',
+    //if(this.data.bookbookorderstate==1){
+      wx.request({
+        url: 'http://localhost:9095/user/returnbook/'+that.data.orderid,
+        method: "GET",
+        success: function (res) {
+            // console.log(res)
+            wx.showToast({
+              title: res.data,
               icon: 'false',
               duration: 2000
           })
-      }
-    })
+          that.onShow();
+            // that.setData({
+            //     bookObj: res.data,
+            //     // bookObj: res.data,
+            //     loading: false
+            // })
+        },
+        fail: function () {
+            wx.showToast({
+                title: '获取数据失败，请稍后重试！',
+                icon: 'false',
+                duration: 2000
+            })
+        }
+      })
+   // }else{
+
+   // }
+
+    
   },
   showModal(e) {
-    this.setData({
-      modalName: e.currentTarget.dataset.target
-    })
+    // this.setData({
+    //   modalName: e.currentTarget.dataset.target
+    // })
+    
   },
   detail(e) {
     //console.log(e)
    // console.log(book.orderid)
     //book.orderid
-    this.setData({
-      orderid:e.currentTarget.dataset.orderid,
-      modalName: e.currentTarget.dataset.target
+    console.log(e)
+    var that =this;
+    if(e.currentTarget.dataset.bookbookorderstate == 1){
+      that.setData({
+        bookorderstate:e.currentTarget.dataset.bookbookorderstate,
+        orderid:e.currentTarget.dataset.orderid,
+        modalName: e.currentTarget.dataset.target
+      })
+    }else{
+      wx.showToast({
+        title: '本书没有借阅成功，借阅成功后再归还哦',
+        icon: 'none',
+        duration: 2000
     })
+    }
+
     //var that=this;
     
   },

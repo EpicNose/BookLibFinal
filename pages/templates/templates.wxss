@@ -8,8 +8,10 @@
 
 .book-image {
     width: 25%;
-    height: 240rpx;
-    float: left;
+    height: 240rpx; 
+    z-index: 2;
+    /* float: left; */
+    /* overflow: hidden; */
 }
 
 .book-info {

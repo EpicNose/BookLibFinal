@@ -1,7 +1,7 @@
 <!-- 首页 -->
 
 <template name="indexListforhaveborrow">
-    <view class="book-tmp" bindtap="detail" data-target="DialogModal2" data-bookId="{{book.bookbook.id}}" data-type="{{book.bookbook.label}}" data-orderid="{{book.orderid}}" >
+    <view class="book-tmp" bindtap="detail" data-bookbookorderstate="{{book.orderstate}}" data-target="DialogModal2" data-bookId="{{book.bookbook.id}}" data-type="{{book.bookbook.label}}" data-orderid="{{book.orderid}}" >
         <image src="{{book.bookbook.imgUrl}}" class="book-image"></image>
         <view class="book-info">
             <view class="book-namename">{{book.bookbook.bookName}}—{{book.bookbook.author}}</view>

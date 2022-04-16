@@ -1,8 +1,5 @@
 <!--pages/haveborrow/haveborrow.wxml-->
 <import src="../templates/templates.wxml"/>
-<text>pages/haveborrow/haveborrow.wxml</text>
-
-
 <!-- <view class="cu-bar bg-white margin-top">
   <view class="action">
     <text class="cuIcon-title text-orange "></text> 对话窗口
@@ -27,7 +24,7 @@
     <view class="cu-bar bg-white">
       <!-- <view class="action margin-0 flex-sub text-green " bindtap="hideModal"> -->
         <!-- <text class="cuIcon-moneybag"></text>微信支付</view> -->
-      <view class="action margin-0 flex-sub text-green solid-left" bindtap="hideModal">归还</view>
+      <view class="action margin-0 flex-sub text-green solid-left" bindtap="returnModal">归还</view>
       <!-- <view class="action margin-0 flex-sub  solid-left" bindtap="hideModal">确定</view> -->
     </view>
   </view>

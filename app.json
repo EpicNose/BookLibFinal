@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/find/find",
     "pages/haveborrow/haveborrow",
     "pages/self/self",
     "pages/index/index",
@@ -70,8 +71,8 @@
         "selectedIconPath": "images/index-selected.png"
       },
       {
-        "pagePath": "pages/operate/operate",
-        "text": "操作",
+        "pagePath": "pages/find/find",
+        "text": "搜索",
         "iconPath": "images/operate.png",
         "selectedIconPath": "images/operate-selected.png"
       },
