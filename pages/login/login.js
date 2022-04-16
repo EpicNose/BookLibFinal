@@ -132,7 +132,7 @@ Page({
                       wx.switchTab({
                         url: '../index/index',
                         success: (result)=>{
-                          console.log("jump success")
+                          // console.log("jump success")
                         },
                         fail: ()=>{},
                         complete: ()=>{}
