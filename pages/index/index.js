@@ -47,7 +47,7 @@ Page({
 
         //var url='https://book.imgcraft.cn:9095/book/page?pageNum=1&pageSize=10&bookName=&author=&publishingHouse=&isbn=&translator='
         
-        var url='http://localhost:9095/book/getrandombooks'
+        var url='https://'+app.globalData.apiUrl+'/book/getrandombooks'
       
       
         // var url = 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=bookList&screen=' + that.data.activeNum;

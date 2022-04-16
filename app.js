@@ -80,7 +80,7 @@ App({
         appSecret: '1b797d6e3d04868673b97ef908b975bb',
         session_key: null,
         openId: null,
-        apiUrl: "localhost:9095",//"localhost:8081",//www.1949science.cn  139.199.171.106/bookshare
+        apiUrl: "book.imgcraft.cn:9095",//"localhost:8081",//www.1949science.cn  139.199.171.106/bookshare
         userId:null,//用户userId
         timer: 30000,//定时器设置时间
         access_token:null,

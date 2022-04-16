@@ -36,7 +36,7 @@ Page({
         })
         wx.request({
             // url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getBookInfoByCanShareId&canShareId=' + canShareId + "&book_type=" + book_type + "&userId=" + app.globalData.userId + "&bookId=" + that.data.bookId,
-            url: 'http://' + app.globalData.apiUrl + '/book/' + that.data.bookId,
+            url: 'https://' + app.globalData.apiUrl + '/book/' + that.data.bookId,
             method: "GET",
             header: {
                 'content-type': 'application/json',
@@ -131,7 +131,7 @@ Page({
         //     url:'http://'+app.globalData,apiUrl+'/'+app.globalData.openId,
         // }),
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/ordertable/borrow/' + app.globalData.openId + '/' +that.data.bookId,
+            url: 'https://' + app.globalData.apiUrl + '/ordertable/borrow/' + app.globalData.openId + '/' +that.data.bookId,
             method: "GET",
             header: {
                 'content-type': 'application/json',

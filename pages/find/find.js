@@ -87,7 +87,7 @@ Page({
   search(e){
     var that=this;
     wx.request({
-      url: 'http://'+app.globalData.apiUrl+'/book/page?pageNum=1&pageSize=10&bookName='+that.data.bookname+'&author='+that.data.author+'&publishingHouse='+that.data.publishinghouse+'&isbn='+that.data.isbn+'&translator='+that.data.translator+'&num=',
+      url: 'https://'+app.globalData.apiUrl+'/book/page?pageNum=1&pageSize=10&bookName='+that.data.bookname+'&author='+that.data.author+'&publishingHouse='+that.data.publishinghouse+'&isbn='+that.data.isbn+'&translator='+that.data.translator+'&num=',
       method: "GET",
       success: function (res) {
           console.log(res)

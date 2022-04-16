@@ -96,7 +96,7 @@ Page({
          })
          wx.login({
           success: function(login_res) {
-            console.log("aaaa")
+            // console.log("aaaa")
             console.log(login_res.code)
             //console.log(that.data.userInfo.rawData)
             //获取用户信息
@@ -105,7 +105,7 @@ Page({
                // console.log("up获取成功了")
                 // 2. 小程序通过wx.request()发送code到开发者服务器
                 wx.request({
-                  url: 'http://localhost:9095/user/wx/login',
+                  url: 'https://'+app.globalData.apiUrl+'/user/wx/login',
                   method: 'POST',
                   header: {
                     'content-type': 'application/x-www-form-urlencoded'

@@ -58,7 +58,7 @@ Page({
     var that=this;
     //if(this.data.bookbookorderstate==1){
       wx.request({
-        url: 'http://localhost:9095/user/returnbook/'+that.data.orderid,
+        url: 'https://'+app.globalData.apiUrl+'/user/returnbook/'+that.data.orderid,
         method: "GET",
         success: function (res) {
             // console.log(res)
@@ -137,7 +137,7 @@ Page({
     //openid=app.globalData.openId
     var that=this;
     wx.request({
-      url: 'http://localhost:9095/user/getborrowbooks/'+app.globalData.openId,
+      url: 'https://'+app.globalData.apiUrl+'/getborrowbooks/'+app.globalData.openId,
       method: "GET",
       success: function (res) {
           console.log(res)
