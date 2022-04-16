@@ -12,7 +12,7 @@ App({
             success: (res)=>{
                 console.log(res)
                 wx.showToast({
-                    title: '登录未过期',
+                    title: '登录未过期!',
 
                 });
                 getApp().globalData.certificationOk=2;
