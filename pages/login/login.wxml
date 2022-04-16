@@ -6,10 +6,10 @@
 
 <!-- <cu -->
   <!-- <button class="" id="submit" type="submit" >登 陆</button> -->
-  <view class="padding flex flex-direction">
+  <!-- <view class="padding flex flex-direction">
     <button class="cu-btn bg-grey lg" bindtap="login">登入</button>
-    <!-- <button class="cu-btn bg-red margin-tb-sm lg">嫣红</button> -->
-  </view>
+    
+  </view> -->
 
 
   <!-- <form action="https://www.jq22.com/demo/jquery-Sharelink20151012/" method="post" id="loginForm" novalidate="novalidate">
@@ -21,13 +21,13 @@
     </view>
     <button id="submit" type="submit" >登 陆</button>
   </form> -->
-  <a href="#" onclick="openRegister()">
+  <!-- <a href="#" onclick="openRegister()">
     <button type="button" class="register-tis">还有没有账号？</button>
-  </a>
+  </a> -->
 
-  <a href="#" onclick="openRegister()">
-    <button type="button" catchtap="GetUserInfo">还有没有账号？</button>
-  </a>
+  <!-- <a href="#" onclick="openRegister()">
+    <button type="button" catchtap="GetUserInfo">授权按钮</button>
+  </a> -->
 
 
     <button type="button" bindtap="GetSession">获取数据</button>

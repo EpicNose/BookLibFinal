@@ -1,7 +1,9 @@
 //app.js
 App({
+    
     onLaunch: function () {
         //调用API从本地缓存中获取数据
+        var that=this;
         var logs = wx.getStorageSync('logs') || []
         logs.unshift(Date.now())
         wx.setStorageSync('logs', logs)
@@ -13,7 +15,8 @@ App({
                     title: '登录未过期',
 
                 });
-
+                getApp().globalData.certificationOk=2;
+                getApp().globalData.openId=wx.getStorageSync("openId");
             },
             fail: (res)=>{
 
