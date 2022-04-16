@@ -1,63 +1,26 @@
 {
   "pages": [
+
     "pages/find/find",
     "pages/haveborrow/haveborrow",
-    "pages/self/self",
+    
     "pages/index/index",
     "pages/login/login",
-    "pages/toAuth/toAuth", 
-    "pages/launch/launch",
-    "pages/selfInfo/selfInfo",   
-    "pages/register/register",
-    
-    
-    "pages/home/index",
     "pages/logs/logs",
-    
-    
     "pages/detail/detail",
     
     
-    
-    
-    "pages/bookList/bookList",
-    "pages/opinion/opinion",
-    "pages/aboutUs/aboutUs",
-    "pages/share/share",
-    "pages/operate/operate",
-    "pages/borrowApplication/borrowApplication",
-    "pages/borrowIn/borrowIn",
-    "pages/returnBack/returnBack",
-    "pages/getBook/getBook",
-    "pages/templates/templates",
-    "pages/bookMan/bookMan",
-    "pages/editTime/editTime",
-    "pages/operateShare/operateShare",
-    "pages/setting/setting",
-    "pages/qrcode/qrcode",
-    "pages/pilot/pilot",
-    "pages/uploadPilot/uploadPilot",
-    "pages/cancelReason/cancelReason",
-    "pages/pilotBorrowIn/pilotBorrowIn",
-    "pages/card/card",
-    "pages/cardDetail/cardDetail",
-    "pages/comment/comment",
-    "pages/bookListInfo/bookListInfo",
-    "pages/commentBorrower/commentBorrower",
-    "pages/joinShare/joinShare",
-    "pages/myAccount/myAccount",
-    "pages/integralBalance/integralBalance",
-    "pages/donate/donate",
-    "pages/newBookList/newBookList",
-    "pages/addBook/addBook",
-    "pages/bookInfo/bookInfo",
-    "pages/editCardDetail/editCardDetail",
-    "pages/payment/payment"
+
+    "pages/templates/templates"
+
+
+
+
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "阅享",
+    "navigationBarTitleText": "书籍借阅",
     "navigationBarTextStyle": "black",
     "backgroundColor": "#f4f4f4"
   },
